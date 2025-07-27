@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Farhan's Milk Shop</title>
+  <style>
+    body { font-family: sans-serif; margin: 0; background: #f8f8f8; }
+    header { background: #2c3e50; color: white; padding: 20px; text-align: center; }
+    section { padding: 20px; }
+    .product { background: white; padding: 15px; margin: 10px 0; border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+    label { display: block; margin-top: 10px; }
+    input, select { width: 100%; padding: 8px; margin-top: 5px; border: 1px solid #ccc; border-radius: 5px; }
+    button, .whatsapp-btn {
+      background: #27ae60; color: white; border: none;
+      padding: 10px 15px; margin-top: 15px; border-radius: 5px; cursor: pointer;
+      text-decoration: none; display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Farhan's Milk Shop</h1>
+    <p>Fresh Dairy Products in Your Area</p>
+  </header>
+
+  <section>
+    <h2>🛒 Our Products</h2>
+
+    <div class="product">
+      <h3>Milk (1L)</h3>
+      <p>Rs. 200</p>
+    </div>
+    <div class="product">
+      <h3>Yogurt (1 Kg)</h3>
+      <p>Rs. 250</p>
+    </div>
+    <div class="product">
+      <h3>Ghee (1 Kg)</h3>
+      <p>Rs. 3200</p>
+    </div>
+
+    <h2>📩 Place Your Order</h2>
+    <form id="orderForm">
+      <label for="name">Your Name</label>
+      <input type="text" id="name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <label for="product">Product</label>
+      <select id="product" required>
+        <option value="Milk">Milk</option>
+        <option value="Yogurt">Yogurt</option>
+        <option value="Ghee">Ghee</option>
+      </select>
+
+      <button type="button" onclick="sendWhatsApp()">Send Order via WhatsApp</button>
+    </form>
+
+    <a class="whatsapp-btn" href="https://wa.me/923270553470" target="_blank">Chat on WhatsApp</a>
+  </section>
+
+  <script>
+    function sendWhatsApp() {
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const product = document.getElementById('product').value;
+
+      const message = `New Order:%0AName: ${name}%0APhone: ${phone}%0AProduct: ${product}`;
+      const url = `https://wa.me/923270553470?text=${message}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
